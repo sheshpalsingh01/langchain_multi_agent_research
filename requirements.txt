@@ -23,3 +23,5 @@ rich>=13.7.0
 # Local web UI
 Flask>=3.0.0
 flask
+
+-e .
