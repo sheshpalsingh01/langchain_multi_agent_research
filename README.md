@@ -59,6 +59,25 @@ Open **http://127.0.0.1:5000**, enter a topic, and select **Start research**. To
 
 The UI can open before API keys are configured, but running research requires both keys. Restart the app after changing `.env`.
 
+## Run with Docker
+
+Build the image from the project folder:
+
+```bash
+docker build -t research-assistant .
+```
+
+Run the web UI, passing the API keys through environment variables:
+
+```bash
+docker run --rm -p 5000:5000 \
+  -e OPENAI_API_KEY \
+  -e TAVILY_API_KEY \
+  research-assistant
+```
+
+Alternatively, pass a local `.env` file with `--env-file .env`. The `.env` file is excluded from the image build context.
+
 ## Run from the command line
 
 Edit the `topic` variable in `main.py`, then run:
