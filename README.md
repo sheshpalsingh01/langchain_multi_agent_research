@@ -78,6 +78,17 @@ docker run --rm -p 5000:5000 \
 
 Alternatively, pass a local `.env` file with `--env-file .env`. The `.env` file is excluded from the image build context.
 
+### Deploy on Render
+
+This repository can be deployed as a Docker-based Web Service:
+
+1. In the Render Dashboard, create a **New Web Service** and connect this repository.
+2. Select **Docker** as the runtime and use the repository root as the build context.
+3. Add `OPENAI_API_KEY` and `TAVILY_API_KEY` under the service's **Environment** settings. Do not commit or copy your `.env` file into the image.
+4. Create the service and wait for the Docker build and deploy to finish.
+
+The container uses Render's `PORT` environment variable and listens on `0.0.0.0`. Open the `onrender.com` URL shown for the service after it is ready. Research requests call the OpenAI and Tavily APIs and may incur charges.
+
 ## Run from the command line
 
 Edit the `topic` variable in `main.py`, then run:

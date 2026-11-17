@@ -23,5 +23,4 @@ rich>=13.7.0
 # Local web UI
 Flask>=3.0.0
 flask
-
--e .
+gunicorn>=23.0.0
